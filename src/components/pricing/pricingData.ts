@@ -39,7 +39,7 @@ export const pricingTiers = [
   },
   {
     title: 'Service de Maintenance',
-    price: '65/mois',
+    price: '*65/mois',
     description: 'Une solution clé pour assurer la sécurité et les mises à jour régulières de vos sites.',
     features: [
       'Mises à jour fréquentes',
