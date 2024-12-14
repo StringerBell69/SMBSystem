@@ -9,11 +9,12 @@ import CGU from './pages/legal/CGU';
 
 function App() {
   return (
-    <Router>
+    // Set basename to '/portfolio' if the app is hosted at /portfolio
+    <Router basename="/portfolio">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="portfolio" />
+          <Route path="portfolio" element={<Portfolio />} /> {/* Define element for portfolio route */}
           <Route path="mentions-legales" element={<MentionsLegales />} />
           <Route path="politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="cgu" element={<CGU />} />

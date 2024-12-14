@@ -5,8 +5,9 @@ const Portfolio = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.location.href = 'https://danilo-portfolio.netlify.app/';
-  }, []);
+    // Navigate to an internal route
+    navigate('/portfolio'); // Adjust the internal path as needed
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center">
