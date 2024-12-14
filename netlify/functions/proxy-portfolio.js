@@ -1,11 +1,11 @@
-exports.handler = async (event) => {
-  // Dynamically import `node-fetch` for ESM support
-  const fetch = (await import('node-fetch')).default;
+// Use import instead of require
+import fetch from 'node-fetch'; 
 
+export const handler = async (event) => {
   const { path, httpMethod, headers, body } = event;
   const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app';
 
-  // Ensure the request path starts with `/portfolio`
+  // Ensure the request path starts with "/portfolio"
   if (!path.startsWith('/portfolio')) {
     return {
       statusCode: 400,
