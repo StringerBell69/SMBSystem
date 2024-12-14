@@ -21,7 +21,7 @@ const Pricing = () => {
         </div>
         <div className="mt-12 text-center">
           <p className="text-gray-600">
-            Tous nos prix sont en euros (€) TTC. Des options de paiement flexibles sont disponibles. (*) Payé annuelemnt.
+            Tous nos prix sont en euros (€) TTC. Des options de paiement flexibles sont disponibles. (*) Payé annuelement.
            
           </p>
         </div>
