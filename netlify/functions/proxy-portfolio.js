@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const handler = async (event) => {
+export const handler = async (event) => {
   const { path, httpMethod, headers, body } = event;
   const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app';
 

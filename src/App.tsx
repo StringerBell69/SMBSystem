@@ -10,6 +10,7 @@ import CGU from './pages/legal/CGU';
 function App() {
   return (
     <Router>
+    <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
