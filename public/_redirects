@@ -1,0 +1,5 @@
+# Redirect portfolio to external site
+/portfolio/* /.netlify/functions/proxy-portfolio/:splat 200
+
+# Handle client-side routing
+/*    /index.html   200
