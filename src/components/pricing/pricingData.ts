@@ -14,7 +14,7 @@ export const pricingTiers = [
   {
     title: 'E-commerce',
     price: '1200',
-    description: 'Idéal pour les entreprises cherchant à vendre en ligne facilement et en toute sécurité.',
+    description: 'Pour les entreprises cherchant à vendre en ligne facilement et en toute sécurité.',
     isPopular: true,
     features: [
       'Ajout de 30 produits maximum',
