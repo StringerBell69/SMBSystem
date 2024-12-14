@@ -1,8 +1,9 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event) => {
-  const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app'; // Base portfolio URL
+  // Dynamically import `node-fetch` for ESM support
+  const fetch = (await import('node-fetch')).default;
+
   const { path, httpMethod, headers, body } = event;
+  const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app';
 
   // Ensure the request path starts with `/portfolio`
   if (!path.startsWith('/portfolio')) {
@@ -15,8 +16,6 @@ exports.handler = async (event) => {
   // Transform the path to remove "/portfolio" but keep sub-paths
   const targetPath = path.replace('/portfolio', '') || '/'; // Default to '/' if no sub-path
   const targetUrl = `${portfolioBaseUrl}${targetPath}`;
-  
-  console.log('Proxying request to:', targetUrl);
 
   try {
     // Proxy the request to the portfolio site
@@ -29,11 +28,6 @@ exports.handler = async (event) => {
     // Get the response body and headers
     const responseBody = await response.text();
     const responseHeaders = response.headers.raw();
-
-    console.log('Response from portfolio site:', {
-      status: response.status,
-      headers: responseHeaders,
-    });
 
     return {
       statusCode: response.status,
