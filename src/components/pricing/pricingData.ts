@@ -2,51 +2,51 @@ export const pricingTiers = [
   {
     title: 'Site Vitrine',
     price: '450',
-    description: 'Idéal pour les petites entreprises et projets personnels',
+    description: 'Conçu pour les petites entreprises souhaitant une présence en ligne simple et efficace.',
     features: [
-      'Jusqu\'à 5 pages',
-      'Design responsive',
-      'Formulaire de contact',
-      'Optimisation SEO de base',
-      '2 révisions gratuites'
+      'Jusqu\'à 5 pages professionnelles',
+      'Design moderne et responsive',
+      'Formulaire de contact intuitif',
+      'Optimisation SEO standard',
+      '2 cycles de révision inclus'
     ]
   },
   {
     title: 'E-commerce',
     price: '1200',
-    description: 'Pour les entreprises souhaitant vendre en ligne',
+    description: 'Idéal pour les entreprises cherchant à vendre en ligne facilement et en toute sécurité.',
     isPopular: true,
     features: [
-      'Jusqu\'à 30 produits',
-      'Paiement sécurisé',
-      'Gestion des stocks',
-      'Dashboard admin',
-      'Support technique (1 mois)'
+      'Ajout de 30 produits maximum',
+      'Système de paiement sécurisé',
+      'Gestion des stocks intégrée',
+      'Dashboard admin simplifié',
+      'Support technique offert 1 mois'
     ]
   },
   {
     title: 'Applications Mobiles',
     price: 'Sur mesure',
-    description: 'Pour les entreprises souhaitant créer une application mobile personnalisée',
+    description: 'Parfait pour créer une application iOS et Android innovante et performante.',
     isPopular: true,
     features: [
-      'Application iOS et Android',
-      'Design personnalisé',
-      'Intégration des fonctionnalités spécifiques',
-      'Optimisation des performances',
-      'Support technique (3 mois)'
+      'Compatible iOS et Android',
+      'Design sur mesure inclus',
+      'Intégration des fonctions clés',
+      'Optimisation pour hautes performances',
+      'Support technique offert 3 mois'
     ]
-},
-{
-  title: 'Service de Maintenance',
-  price: '*65/mois',
-  description: 'Pour les entreprises nécessitant un suivi et une maintenance régulière de leurs sites web ou applications.',
-  features: [
-    'Mises à jour régulières',
-    'Sécurisation des données',
-    'Optimisation des performances',
-    'Support technique continu',
-    'Rapports mensuels'
-  ]
-}
+  },
+  {
+    title: 'Service de Maintenance',
+    price: '65/mois',
+    description: 'Une solution clé pour assurer la sécurité et les mises à jour régulières de vos sites.',
+    features: [
+      'Mises à jour fréquentes',
+      'Protection avancée des données',
+      'Amélioration des performances',
+      'Support client en continu',
+      'Rapports détaillés chaque mois'
+    ]
+  }
 ] as const;
