@@ -1,46 +1,25 @@
-const fetch = require('node-fetch');
+import axios from 'axios';
 
-exports.handler = async (event) => {
-  const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app'; // Base portfolio URL
+export const handler = async (event) => {
   const { path, httpMethod, headers, body } = event;
+  const portfolioBaseUrl = 'https://danilo-portfolio.netlify.app';
 
-  // Ensure the request path starts with `/portfolio`
-  if (!path.startsWith('/portfolio')) {
-    return {
-      statusCode: 400,
-      body: 'Invalid path: All requests must start with /portfolio',
-    };
-  }
-
-  // Transform the path to remove "/portfolio" but keep sub-paths
-  const targetPath = path.replace('/portfolio', '') || '/'; // Default to '/' if no sub-path
-  const targetUrl = `${portfolioBaseUrl}${targetPath}`;
-  
-  console.log('Proxying request to:', targetUrl);
+  const targetUrl = `${portfolioBaseUrl}${path.replace('/portfolio', '')}`;
 
   try {
-    // Proxy the request to the portfolio site
-    const response = await fetch(targetUrl, {
+    const response = await axios({
+      url: targetUrl,
       method: httpMethod,
       headers,
-      body,
-    });
-
-    // Get the response body and headers
-    const responseBody = await response.text();
-    const responseHeaders = response.headers.raw();
-
-    console.log('Response from portfolio site:', {
-      status: response.status,
-      headers: responseHeaders,
+      data: body,
     });
 
     return {
       statusCode: response.status,
-      body: responseBody,
+      body: response.data,
       headers: {
-        ...responseHeaders, // Include the original response headers
-        'Access-Control-Allow-Origin': '*', // Adjust for CORS
+        ...response.headers,
+        'Access-Control-Allow-Origin': '*',
       },
     };
   } catch (error) {
