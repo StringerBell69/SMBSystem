@@ -10,7 +10,9 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Code2 className="h-8 w-8 text-blue-400" />
-              <span className="ml-2 text-xl font-bold">SMB System</span>
+ <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+                SMB Systems
+              </span>
             </div>
             <p className="text-gray-400 max-w-md">
               Solutions innovantes de développement web et accompagnement digital pour
