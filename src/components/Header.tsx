@@ -17,6 +17,34 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // Si c'est un lien externe (comme /portfolio), utiliser le comportement par défaut
+    if (!href.startsWith('#')) {
+      window.location.href = href;
+      return;
+    }
+
+    // Enlever le # du href pour obtenir l'id
+    const targetId = href.replace('/#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const headerOffset = 80; // Hauteur approximative du header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Fermer le menu mobile si ouvert
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -39,13 +67,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -70,14 +99,14 @@ const Header = () => {
         >
           <div className="py-4 space-y-2">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="block py-2 px-4 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
