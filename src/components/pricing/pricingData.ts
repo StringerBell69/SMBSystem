@@ -1,7 +1,7 @@
 export const pricingTiers = [
   {
     title: 'Site Vitrine',
-    price: '450',
+    price: '900',
     description: 'Conçu pour les petites entreprises souhaitant une présence en ligne simple et efficace.',
     features: [
       'Jusqu\'à 5 pages professionnelles',
@@ -13,7 +13,7 @@ export const pricingTiers = [
   },
   {
     title: 'E-commerce',
-    price: '1200',
+    price: '2500',
     description: 'Pour les entreprises cherchant à vendre en ligne facilement et en toute sécurité.',
     isPopular: true,
     features: [
